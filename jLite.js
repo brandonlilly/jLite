@@ -3,9 +3,9 @@ var LCollection = function (els) {
 };
 
 LCollection.prototype.each = function (callback) {
-  this.els.forEach(function (el) {
-    callback(el);
-  });
+  for(var i = 0; i < this.els.length; i++) {
+    callback(this.els[i]);
+  }
 };
 
 LCollection.prototype.first = function () {
@@ -51,7 +51,7 @@ LCollection.prototype.append = function (node) {
 };
 
 
-L = function(selector) {
+jLite = function(selector) {
   if(selector instanceof HTMLElement) {
     return new LCollection([selector]);
   }
@@ -73,3 +73,5 @@ L = function(selector) {
   }
   return new LCollection(els)
 };
+
+L = jLite;
